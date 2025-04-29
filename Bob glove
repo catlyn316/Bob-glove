@@ -108,7 +108,8 @@ end
 local EgglerButtons = {
 	createButton("不管在私服或公服運行，都先確定場上有人，否則不會有徽章！", 1, EgglerScroll, 35),
 	createButton("bob(需能裝備神手)", 2, EgglerScroll, 35),
-	createButton("bob(需有另一位神手幫)", 3, EgglerScroll, 35)
+	createButton("bob(需有另一位神手幫)", 3, EgglerScroll, 35),
+	createButton("神手直接時停腳本", 4, EgglerScroll, 35)
 }
 -- 初始化時顯示分區的按鈕
 for _, b in ipairs(EgglerButtons) do b.Visible = true end
@@ -122,6 +123,13 @@ end)
 
 EgglerButtons[3].MouseButton1Click:Connect(function()
 	loadstring(game:HttpGet"https://pastefy.app/HIRBIVwU/raw")()
+end)
+
+EgglerButtons[4].MouseButton1Click:Connect(function()
+
+game:GetService("ReplicatedStorage").TimestopJump:FireServer()
+game:GetService("ReplicatedStorage").Timestopchoir:FireServer()
+game:GetService("ReplicatedStorage").Timestop:FireServer()
 end)
 
 
